@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import axios from 'axios';
+// import axios from 'axios';
 import 'remixicon/fonts/remixicon.css'
 import { useContext } from 'react';
 import { UserDataContext } from '../context/UserContext';
@@ -9,10 +9,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [ panelOpen, setPanelOpen ] = useState(false)
-    const [Pickup, setPickup] = useState("");
+    console.log(panelOpen);
+    const [Pickup, setPickup] = useState('');
     const [Drop, setDrop] = useState('');
 
     const panelRef = useRef(null)
+
     const panelCloseRef = useRef(null)
     const navigate = useNavigate()
     const { user } = useContext(UserDataContext)
@@ -25,25 +27,25 @@ const Home = () => {
     useGSAP(function () {
         if (panelOpen) {
             gsap.to(panelRef.current, {
-                height: '70%',
-                padding: 24,
-                opacity:1
-            })
+                height: '70%',  
+                padding: '24px', 
+                opacity: 1
+            });
             gsap.to(panelCloseRef.current, {
                 opacity: 1
-            })
+            });
         } else {
-            gsap.to(panelRef, {
-                height: '0%',
-                padding: 0,
-                opacity:0
-            })
+            gsap.to(panelRef.current, {  
+                height: '0px',
+                padding: '0px',  
+                opacity: 0
+            });
             gsap.to(panelCloseRef.current, {
                 opacity: 0
-            })
+            });
         }
-    }, [ panelOpen ])
-
+    }, [panelOpen]);
+    
 
     
 
@@ -61,7 +63,9 @@ const Home = () => {
                     <h5 ref={panelCloseRef} onClick={() => {
                         setPanelOpen(false)
                     }} className='absolute opacity-0 right-6 top-6 text-2xl'>
-                        <i className="ri-arrow-down-wide-line"></i>
+                        <i className="ri-arrow-down-wide-line" onClick={() => {
+                            setPanelOpen(false);
+                        }}></i>
                     </h5>
                     <h4 className='text-2xl font-semibold'>Find a trip</h4>
                     <form className='relative py-3' onSubmit={(e) => {
@@ -93,7 +97,7 @@ const Home = () => {
                             placeholder='Enter your destination' />
                     </form>
                 </div>
-                <div className='bg-red-500 h-[0]'>
+                <div className='bg-red-500 h-[0%] opacity-1' ref={panelRef}>
 
                 </div>
 
