@@ -8,12 +8,17 @@ import { UserDataContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import LocationSearchPanel from "../../components/LocationSearchPanel";
 
+import VehiclePanel from "../../components/VehiclePanel";
+import ConfirmRidePanel from "../../components/ConfirmRidePanel";
+
 const Home = () => {
   const [panelOpen, setPanelOpen] = useState(false);
   const vehiclePanelRef = useRef(null);
+  const confirmRidePanelRef = useRef(null);
   const [Pickup, setPickup] = useState("");
   const [Drop, setDrop] = useState("");
   const [vehiclePanel, setVehiclePanel] = useState(false);
+  const [confirmRidePanel, setConfirmRidePanel] = useState(false);
 
   const panelRef = useRef(null);
 
@@ -65,7 +70,23 @@ const Home = () => {
         });
       }
     },
-    [panelOpen]
+    [vehiclePanel]
+  );
+
+  // confirmRide gsap
+  useGSAP(
+    function () {
+      if (confirmRidePanel) {
+        gsap.to(confirmRidePanelRef.current, {
+          transform: "translateY(0)",
+        });
+      } else {
+        gsap.to(vehiclePanelRef.current, {
+          transform: "translateY(100%)",
+        });
+      }
+    },
+    [confirmRidePanel]
   );
 
 
@@ -84,8 +105,8 @@ const Home = () => {
       <div className="h-screen w-screen">
         {/* image for temporary use  */}
         <img
-          className="h-[70vh] w-full"
-          src="https://100map.net/img/en/letter_portrait_tokyo.png"
+          className="h-[80vh] w-full"
+          src="https://images.unsplash.com/photo-1717700299591-470e043edc9c?q=80&w=724&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="map"
         ></img>
       </div>
@@ -115,7 +136,7 @@ const Home = () => {
               submitHandler(e);
             }}
           >
-            <div className="line absolute h-16 w-1 top-[50%] -translate-y-1/2 left-5 bg-gray-700 rounded-full"></div>
+            <div className=" absolute h-16 w-1 top-[50%] -translate-y-1/2 left-5 bg-gray-700 rounded-full"></div>
             <input
               value={Pickup}
               onChange={(e) => [setPickup(e.target.value)]}
@@ -151,74 +172,19 @@ const Home = () => {
         ref={vehiclePanelRef}
         className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6"
       >
-        <h3 className="text-2xl font-semibold mb-5">Choose a Vehicle</h3>
+        <VehiclePanel setConfirmRidePanel={setConfirmRidePanel} setVehiclePanel={setVehiclePanel}/>
+      </div>
 
-        <div className="flex border-2 active:border-black mb-2 rounded-xl w-full p-3 items-center justify-between">
-          <img
-            className="h-10"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn0leWMQ7sw2zVvw0RhepJ3r7rN0Y8EzSemQ&s"
-            alt=""
-          />
-          <div className="w-1/2">
-            <h4 className="font-medium text-base">
-              UberGo{" "}
-              <span>
-                <i className="ri-user-3-fill"></i>4
-              </span>
-            </h4>
-            <h5 className="font-medium text-sm">2 mins away</h5>
-            <p className="font-normal text-xs text-gray-600">
-              Affordable, compact rides
-            </p>
-          </div>
-          <h2 className="text-lg font-semibold">₹193.20</h2>
-        </div>
-
-        <div className="flex border-2 active:border-black mb-2 rounded-xl w-full p-3 items-center justify-between">
-          <img
-            className="h-10"
-            src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_368,w_552/v1649231091/assets/2c/7fa194-c954-49b2-9c6d-a3b8601370f5/original/Uber_Moto_Orange_312x208_pixels_Mobile.png"
-            alt=""
-          />
-          <div className="w-1/2">
-            <h4 className="font-medium text-base">
-              Moto{" "}
-              <span>
-                <i className="ri-user-3-fill"></i>1
-              </span>
-            </h4>
-            <h5 className="font-medium text-sm">1 sec away</h5>
-            <p className="font-normal text-xs text-gray-600">
-              Affordable motorcycle rides
-            </p>
-          </div>
-          <h2 className="text-lg font-semibold">₹65</h2>
-        </div>
-
-        <div className="flex border-2 active:border-black mb-2 rounded-xl w-full p-3 items-center justify-between">
-          <img
-            className="h-10"
-            src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_368,w_552/v1648431773/assets/1d/db8c56-0204-4ce4-81ce-56a11a07fe98/original/Uber_Auto_558x372_pixels_Desktop.png"
-            alt=""
-          />
-          <div className="w-1/2">
-            <h4 className="font-medium text-base">
-              UberAuto{" "}
-              <span>
-                <i className="ri-user-3-fill"></i>3
-              </span>
-            </h4>
-            <h5 className="font-medium text-sm">3 mins away</h5>
-            <p className="font-normal text-xs text-gray-600">
-              Affordable Auto rides
-            </p>
-          </div>
-          <h2 className="text-lg font-semibold">₹118.86</h2>
-        </div>
+      {/* confirmRide panel */}
+      <div
+        ref={confirmRidePanelRef}
+        className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6 rounded-3xl"
+      >
+        <ConfirmRidePanel setConfirmRidePanel={setConfirmRidePanel} confirmRidePanel={confirmRidePanel}/>
       </div>
 
 
-      
+
     </div>
   );
 };

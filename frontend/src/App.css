@@ -7,7 +7,7 @@
   background-image: url("https://images.unsplash.com/photo-1593950315186-76a92975b60c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
 
-body{
+body {
   /* overflow: hidden; */
 }
 
@@ -18,21 +18,20 @@ body{
   padding-top: 12px;
 }
 
-
-.entry-btn{
+.entry-btn {
   margin: 0 auto;
   margin-top: 20px;
 }
 
 .container {
-  display: flex;           
-  gap: 1rem;   
+  display: flex;
+  gap: 1rem;
   border-width: 2px;
   border-color: #f9fafb;
-  padding: 0.75rem;        
-  border-radius: 0.75rem;  
+  padding: 0.75rem;
+  border-radius: 0.75rem;
   align-items: center;
-  margin: 0.5rem 0;         
+  margin: 0.5rem 0;
   justify-content: flex-start;
 }
 
@@ -40,25 +39,67 @@ body{
   border-color: #000000;
 }
 
-
 .box {
-  background-color: #eeeeee; 
+  background-color: #eeeeee;
   height: 2rem;
-  display: flex;        
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;   
-  border-radius: 9999px;  
+  width: 3rem;
+  border-radius: 9999px;
 }
 
-
-.location{
+.location {
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-
-.LocationSearchPanel{
+.LocationSearchPanel {
   font-size: 2rem;
   font-weight: bolder;
+}
+
+.style {
+  height: 225px;
+}
+
+.gradient {
+  border-radius: 12px;
+  height: 4px;
+  width: full;
+  margin-top: 15px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 7%,
+    rgba(9, 94, 121, 1) 44%,
+    rgba(119, 0, 255, 1) 65%,
+    rgba(0, 212, 255, 1) 76%
+  );
+}
+
+.rideBtn{
+  background-color: #00a000;
+  padding: 19px;
+  width: 72vw;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: none;
+  margin-top: 20px;
+}
+
+
+.gap{
+  gap:12px;
+}
+
+.line{
+  height:3px;
+  width: 80vw;
+  background-color: rgb(233, 228, 228);
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 25px;
 }
