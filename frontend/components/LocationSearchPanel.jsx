@@ -1,15 +1,17 @@
 import React from "react";
 import { MdOutlineShareLocation } from "react-icons/md";
 const LocationSearchPanel = ({ setPanelOpen, setVehiclePanel }) => {
+  // Sample Data
   const locations = [
     "Basai , Sector 70 , Noida , Uttar Pradesh",
     "Basai , Sector 71 , Noida , Uttar Pradesh",
     "Basai , Sector 72 , Noida , Uttar Pradesh",
     "Basai , Sector 73 , Noida , Uttar Pradesh",
   ];
+
+  
   return (
     <div className="gap-4">
-      {/* Sample Data collection */}
       {locations.map((location) => {
         return (
           <div

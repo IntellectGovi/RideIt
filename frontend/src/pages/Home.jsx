@@ -15,8 +15,6 @@ const Home = () => {
   const [Drop, setDrop] = useState("");
   const [vehiclePanel, setVehiclePanel] = useState(false);
 
-
-
   const panelRef = useRef(null);
 
   const panelCloseRef = useRef(null);
@@ -27,6 +25,7 @@ const Home = () => {
     e.preventDefault();
   };
 
+  // location-Popup gsap
   useGSAP(
     function () {
       if (panelOpen) {
@@ -53,25 +52,35 @@ const Home = () => {
     [panelOpen]
   );
 
-  useGSAP(function(){
-    if(vehiclePanel){
-      gsap.to(vehiclePanelRef.current, {
-        transform: "translateY(0)",
-      });
-    }else{
-      gsap.to(vehiclePanelRef.current , {
-        transform:"translateY(100%)",
-      })
-    }
-  }, [panelOpen])
+  // vehicle-Popup gsap
+  useGSAP(
+    function () {
+      if (vehiclePanel) {
+        gsap.to(vehiclePanelRef.current, {
+          transform: "translateY(0)",
+        });
+      } else {
+        gsap.to(vehiclePanelRef.current, {
+          transform: "translateY(100%)",
+        });
+      }
+    },
+    [panelOpen]
+  );
+
+
 
   return (
     <div className="h-screen relative overflow-hidden">
+
       <img
         className="w-16 absolute left-5 top-5"
         src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png"
         alt=""
       />
+
+
+      {/* temporary map */}
       <div className="h-screen w-screen">
         {/* image for temporary use  */}
         <img
@@ -80,6 +89,9 @@ const Home = () => {
           alt="map"
         ></img>
       </div>
+
+
+      {/* location-Search panel */}
       <div className=" flex flex-col justify-end h-screen absolute top-0 w-full ">
         <div className="h-[21%] p-6 bg-white relative">
           <h5
@@ -127,13 +139,18 @@ const Home = () => {
           </form>
         </div>
         <div className="bg-white h-[0%] opacity-1" ref={panelRef}>
-          <LocationSearchPanel setPanelOpen={setPanelOpen} setVehiclePanel={setVehiclePanel}/>
+          <LocationSearchPanel
+            setPanelOpen={setPanelOpen}
+            setVehiclePanel={setVehiclePanel}
+          />
         </div>
       </div>
 
       {/* vehicle panel */}
-
-      <div ref={vehiclePanelRef} className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6">
+      <div
+        ref={vehiclePanelRef}
+        className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6"
+      >
         <h3 className="text-2xl font-semibold mb-5">Choose a Vehicle</h3>
 
         <div className="flex border-2 active:border-black mb-2 rounded-xl w-full p-3 items-center justify-between">
@@ -199,6 +216,9 @@ const Home = () => {
           <h2 className="text-lg font-semibold">₹118.86</h2>
         </div>
       </div>
+
+
+      
     </div>
   );
 };
