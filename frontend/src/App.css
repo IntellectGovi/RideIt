@@ -7,6 +7,10 @@
   background-image: url("https://images.unsplash.com/photo-1593950315186-76a92975b60c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
 
+body{
+  overflow: hidden;
+}
+
 .logo {
   height: 59px;
   width: 132px;
@@ -18,4 +22,42 @@
 .entry-btn{
   margin: 0 auto;
   margin-top: 20px;
+}
+
+.container {
+  display: flex;           
+  gap: 1rem;   
+  border-width: 2px;
+  border-color: #f9fafb;
+  padding: 0.75rem;        
+  border-radius: 0.75rem;  
+  align-items: center;
+  margin: 0.5rem 0;         
+  justify-content: flex-start;
+}
+
+.container:active {
+  border-color: #000000;
+}
+
+
+.box {
+  background-color: #eeeeee; 
+  height: 2rem;
+  display: flex;        
+  align-items: center;
+  justify-content: center;
+  width: 3rem;   
+  border-radius: 9999px;  
+}
+
+
+.location{
+  font-weight: 600;
+}
+
+
+.LocationSearchPanel{
+  font-size: 2rem;
+  font-weight: bolder;
 }
