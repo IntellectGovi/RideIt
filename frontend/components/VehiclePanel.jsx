@@ -26,7 +26,7 @@ const VehiclePanel = ({setVehiclePanel , setConfirmRidePanel}) => {
         </h4>
         <h5 className="font-medium text-sm">2 mins away</h5>
         <p className="font-normal text-xs text-gray-600">
-          Affordable, compact rides
+          Affordable, compact rides 
         </p>
       </div>
       <h2 className="text-lg font-semibold">₹193.20</h2>
