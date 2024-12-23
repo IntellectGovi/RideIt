@@ -9,7 +9,7 @@ const ConfirmRidePanel = ({setConfirmRidePanel , confirmRidePanel}) => {
     return (
         <div className="flex flex-col justify-between items-center">
             <h5 className='p-1 text-center w-[93%] absolute top-0' onClick={() => {
-                // props.setConfirmRidePanel(false)
+                setConfirmRidePanel(false)
             }}><CgLoadbarAlt
                       className="flex items-center justify-center text-4xl cursor-pointer w-full"
                       onClick={() => {setConfirmRidePanel(!confirmRidePanel)}}
