@@ -11,7 +11,7 @@ const LocationSearchPanel = ({ setPanelOpen, setVehiclePanel }) => {
 
   
   return (
-    <div className="gap-4">
+    <div className="gap-4 mt-[17px]">
       {locations.map((location) => {
         return (
           <div

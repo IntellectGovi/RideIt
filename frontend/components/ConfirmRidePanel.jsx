@@ -18,7 +18,7 @@ const ConfirmRidePanel = ({setConfirmRidePanel , confirmRidePanel}) => {
 
             <div className='flex gap-2 justify-between flex-col items-center'>
                 <img className='style' src="https://swyft.pl/wp-content/uploads/2023/05/how-many-people-can-a-uberx-take.jpg" alt="" />
-                <div className='w-full mt-5 gap-3 text-3xl'>
+                <div className='w-full mt-5 gap-3 text-3xl confirmPanel'>
                     <div className='flex items-center gap p-3 border-b-2'>
                         <i className="ri-map-pin-user-fill"></i>
                         <div>

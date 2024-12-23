@@ -113,7 +113,7 @@ const Home = () => {
 
 
       {/* location-Search panel */}
-      <div className=" flex flex-col justify-end h-screen absolute top-0 w-full ">
+      <div className=" flex flex-col justify-end h-[93vh] absolute  top-0 w-full ">
         <div className="h-[21%] p-6 bg-white relative">
           <h5
             ref={panelCloseRef}
