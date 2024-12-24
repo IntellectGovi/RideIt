@@ -10,6 +10,7 @@ import UserProtectedRoute from "./pages/UserProtectedRoute.jsx";
 import UserLogout from "./pages/UserLogout.jsx";
 import CaptainProtectedRoute from "./pages/CaptainProtectedRoute.jsx";
 import CaptainLogout from "./pages/CaptainLogout.jsx";
+import Riding from "./pages/Riding.jsx";
 const App = () => {
   return (
     <div>
@@ -36,6 +37,7 @@ const App = () => {
             </UserProtectedRoute>}>
 
         </Route>
+        <Route  path="/riding" element={<Riding/>} />
       </Routes>
     </div>
   );

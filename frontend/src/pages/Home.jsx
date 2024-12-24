@@ -11,6 +11,7 @@ import LocationSearchPanel from "../../components/LocationSearchPanel";
 import VehiclePanel from "../../components/VehiclePanel";
 import ConfirmRidePanel from "../../components/ConfirmRidePanel";
 import LookingForDriver from "../../components/LookingForDriver";
+import WaitingForDriver from "../../components/WaitingForDriver";
 
 const Home = () => {
   const [panelOpen, setPanelOpen] = useState(false);
@@ -234,7 +235,7 @@ const Home = () => {
         ref={driverFoundRef}
         className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6 rounded-3xl"
       >
-        <LookingForDriver setdriverFound={setdriverFound}/>
+        <WaitingForDriver setdriverFound={setdriverFound}/>
       </div>
 
 
