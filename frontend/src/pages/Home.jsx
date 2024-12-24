@@ -16,10 +16,15 @@ const Home = () => {
   const [panelOpen, setPanelOpen] = useState(false);
   const vehiclePanelRef = useRef(null);
   const confirmRidePanelRef = useRef(null);
+  const vehicleFoundRef = useRef(null);
+  const driverFoundRef = useRef(null);
   const [Pickup, setPickup] = useState("");
   const [Drop, setDrop] = useState("");
   const [vehiclePanel, setVehiclePanel] = useState(false);
   const [confirmRidePanel, setConfirmRidePanel] = useState(false);
+  const [vehicleFound, seVehicleFound] = useState(false);
+  const [driverFound, setdriverFound] = useState(false);
+  
 
   const panelRef = useRef(null);
 
@@ -88,6 +93,38 @@ const Home = () => {
       }
     },
     [confirmRidePanel]
+  );
+
+
+  useGSAP(
+    function () {
+      if (vehicleFound) {
+        gsap.to(vehicleFoundRef.current, {
+          transform: "translateY(0)",
+        });
+      } else {
+        gsap.to(vehicleFoundRef.current, {
+          transform: "translateY(100%)",
+        });
+      }
+    },
+    [vehicleFound]
+  );
+
+
+  useGSAP(
+    function () {
+      if (driverFound) {
+        gsap.to(driverFoundRef.current, {
+          transform: "translateY(0)",
+        });
+      } else {
+        gsap.to(driverFoundRef.current, {
+          transform: "translateY(100%)",
+        });
+      }
+    },
+    [driverFound]
   );
 
 
@@ -181,14 +218,23 @@ const Home = () => {
         ref={confirmRidePanelRef}
         className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6 rounded-3xl"
       >
-        <ConfirmRidePanel setConfirmRidePanel={setConfirmRidePanel} confirmRidePanel={confirmRidePanel}/>
+        <ConfirmRidePanel setConfirmRidePanel={setConfirmRidePanel} seVehicleFound={seVehicleFound} confirmRidePanel={confirmRidePanel}/>
       </div>
 
       {/* Looking for Driver */}
       <div
+        ref={vehicleFoundRef}
         className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6 rounded-3xl"
       >
-        <LookingForDriver/>
+        <LookingForDriver setVehicleFound={seVehicleFound}/>
+      </div>
+
+      {/* Waiting for Driver */}
+      <div
+        ref={driverFoundRef}
+        className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6 rounded-3xl"
+      >
+        <LookingForDriver setdriverFound={setdriverFound}/>
       </div>
 
 

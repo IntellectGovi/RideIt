@@ -4,7 +4,7 @@ import { CgLoadbarAlt } from "react-icons/cg";
 
 import React from 'react'
 
-const ConfirmRidePanel = ({setConfirmRidePanel , confirmRidePanel}) => {
+const ConfirmRidePanel = ({setConfirmRidePanel , confirmRidePanel , seVehicleFound}) => {
     return (
         <div className="flex flex-col justify-between items-center">
             <h5 className='p-1 text-center w-[93%] absolute top-0 cursor-pointer' onClick={() => {
@@ -42,7 +42,10 @@ const ConfirmRidePanel = ({setConfirmRidePanel , confirmRidePanel}) => {
                         </div>
                     </div>
                 </div>
-                <button className='rideBtn'>Confirm</button>
+                <button onClick={() => {
+                    seVehicleFound(true);
+                    setConfirmRidePanel(false);
+                }} className='rideBtn'>Confirm</button>
                 
             </div>
         </div>
