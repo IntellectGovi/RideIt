@@ -10,6 +10,7 @@ import LocationSearchPanel from "../../components/LocationSearchPanel";
 
 import VehiclePanel from "../../components/VehiclePanel";
 import ConfirmRidePanel from "../../components/ConfirmRidePanel";
+import LookingForDriver from "../../components/LookingForDriver";
 
 const Home = () => {
   const [panelOpen, setPanelOpen] = useState(false);
@@ -113,7 +114,7 @@ const Home = () => {
 
 
       {/* location-Search panel */}
-      <div className=" flex flex-col justify-end h-[93vh] absolute  top-0 w-full ">
+      <div className="flex flex-col justify-end h-[93vh] absolute  top-0 w-full ">
         <div className="h-[21%] p-6 bg-white relative">
           <h5
             ref={panelCloseRef}
@@ -170,9 +171,9 @@ const Home = () => {
       {/* vehicle panel */}
       <div
         ref={vehiclePanelRef}
-        className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6"
+        className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6 rounded-3xl border-gray-200 border-2"
       >
-        <VehiclePanel setConfirmRidePanel={setConfirmRidePanel} setVehiclePanel={setVehiclePanel}/>
+        <VehiclePanel className="rounded-full p-12" setConfirmRidePanel={setConfirmRidePanel} setVehiclePanel={setVehiclePanel}/>
       </div>
 
       {/* confirmRide panel */}
@@ -181,6 +182,13 @@ const Home = () => {
         className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6 rounded-3xl"
       >
         <ConfirmRidePanel setConfirmRidePanel={setConfirmRidePanel} confirmRidePanel={confirmRidePanel}/>
+      </div>
+
+      {/* Looking for Driver */}
+      <div
+        className="fixed w-full z-100 bottom-0 translate-y-full bg-white px-3 py-6 rounded-3xl"
+      >
+        <LookingForDriver/>
       </div>
 
 
