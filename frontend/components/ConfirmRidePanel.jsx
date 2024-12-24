@@ -5,14 +5,13 @@ import { CgLoadbarAlt } from "react-icons/cg";
 import React from 'react'
 
 const ConfirmRidePanel = ({setConfirmRidePanel , confirmRidePanel}) => {
-    console.log(confirmRidePanel);
     return (
         <div className="flex flex-col justify-between items-center">
-            <h5 className='p-1 text-center w-[93%] absolute top-0' onClick={() => {
-                setConfirmRidePanel(false)
+            <h5 className='p-1 text-center w-[93%] absolute top-0 cursor-pointer' onClick={() => {
+                setConfirmRidePanel(false);
             }}><CgLoadbarAlt
                       className="flex items-center justify-center text-4xl cursor-pointer w-full"
-                      onClick={() => {setConfirmRidePanel(!confirmRidePanel)}}
+                      onClick={() => {setConfirmRidePanel(false)}}
                     /></h5>
             <h3 className='text-2xl font-semibold mb-5'>Confirm your Ride</h3>
 
